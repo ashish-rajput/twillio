@@ -1,0 +1,26 @@
+{
+  "name": "twillio",
+  "version": "1.0.0",
+  "description": "twillio testing",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashish-rajput/twillio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashish-rajput/twillio/issues"
+  },
+  "homepage": "https://github.com/ashish-rajput/twillio#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "morgan": "^1.10.0",
+    "twilio": "^3.49.4"
+  }
+}

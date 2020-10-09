@@ -1,0 +1,50 @@
+'use strict';
+
+const express = require('express');
+const http = require('http');
+
+// load the env variables
+require('dotenv').config();
+
+const Config = require('./config');
+
+const client = require('twilio')(Config.smsConfig.twilioCredentials.accountSid, Config.smsConfig.twilioCredentials.authToken);
+
+
+//create an express app
+const app = express();
+
+
+// port to use in the app
+app.set('port', Config.appConfig.PORT);
+
+
+
+
+startServer();
+
+async function startServer(){
+    const server = http.createServer(app);
+
+    server.listen(Config.appConfig.PORT);
+
+    server.on('error', (err) => console.error(err));
+
+    server.on('listening', () => console.log(`Server running on ${Config.appConfig.PORT}`));
+
+}
+
+let smsData = {
+    to: '+91***********',
+    from: Config.smsConfig.twilioCredentials.smsFromNumber,
+    body: "OTP: " + 1234 
+}
+
+    client.messages.create(smsData, function (err, message) {
+        if (err) {
+            console.log("ERROR>>>",err)
+        }
+        else {
+            console.log("SUCCESS>>>",message.sid)
+        }
+    });
