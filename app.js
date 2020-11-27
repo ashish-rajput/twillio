@@ -1,5 +1,4 @@
 'use strict';
-
 const express = require('express');
 const http = require('http');
 
@@ -35,11 +34,12 @@ async function startServer(){
 }
 
 let smsData = {
-    to: '+91***********',
-    from: Config.smsConfig.twilioCredentials.smsFromNumber,
-    body: "OTP: " + 1234 
+    // to: '+971 54 455 8830',
+    to: '+917206561636',
+    // from: Config.smsConfig.twilioCredentials.smsFromNumber,
+    from: '+13108613691',
+    body: "Hi test: " + 1234 
 }
-
     client.messages.create(smsData, function (err, message) {
         if (err) {
             console.log("ERROR>>>",err)
